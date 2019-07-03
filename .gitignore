@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# IDE / Editor files and folders
+.vscode
