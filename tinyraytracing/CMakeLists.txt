@@ -5,7 +5,9 @@ cmake_minimum_required(VERSION 3.8)
 
 project("tinyraytracing")
 
+
 # Include sub-projects.
+include_directories("src")
 
 enable_testing()
 add_subdirectory("tests")

@@ -4,12 +4,15 @@
 
 #include <catch2/catch.hpp>
 
-#include "test_vector.hpp"
+#include "graphX/geometry/vector.hpp"
 
 TEST_CASE("vector accessors", "[vector]") {
     using namespace graphX;
 
     vec3i vec;
+    REQUIRE(vec.x() == 0);
+    REQUIRE(vec.y() == 0);
+    REQUIRE(vec.z() == 0);
 
     vec.x() = 1234;
     vec.y() = -123;
