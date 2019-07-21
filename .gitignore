@@ -36,3 +36,4 @@ build
 
 # IDE / Editor files and folders
 .vscode
+.idea
