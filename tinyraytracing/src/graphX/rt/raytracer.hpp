@@ -10,8 +10,7 @@
 #include "graphX/core/Irenderer.hpp"
 #include "graphX/core/framebuffer.hpp"
 
-#include "graphX/geometry/shapes/Ashape.hpp"
-
+#include "scene/scene.hpp"
 
 namespace graphX::rt {
     // TODO: SOME SORT OF APPLICATION CLASS THAT RayTracer INHERITS FROM
@@ -28,37 +27,8 @@ namespace graphX::rt {
         }
 
     public: // Scene control
-        void load_scene_from_file(std::string_view file_name_) {
-            throw std::runtime_error("NOT IMPLEMENTED");
-        }
-
-        template<typename T>
-        void set_camera_position(T&& position_) {
-            _scene.camera_position = position_;
-        }
-
-        void set_fov_angle(float angle_) {
-            _scene.fov_angle = angle_;
-        }
-
-        template<typename T, typename ...Args>
-        void emplace_shape(Args&&... args_) {
-            _scene.shapes.emplace_back(std::make_shared<T>(std::forward<Args>(args_)...));
-        }
-
-        template<typename T>
-        void add_shape(T&& shape_) {
-            _scene.shapes.emplace_back(shape_);
-        }
-
-    private: // Scene
-        struct Scene {
-            vec3f camera_position;
-            float fov_angle;
-            std::vector<std::shared_ptr<geometry::AShape>> shapes;
-            // background
-            // lights
-        };
+        const Scene& get_scene() const { return _scene; }
+        Scene& get_scene() { return const_cast<Scene&>(std::as_const(*this).get_scene()); }
 
     private: // Render functions
         void _render_bg();

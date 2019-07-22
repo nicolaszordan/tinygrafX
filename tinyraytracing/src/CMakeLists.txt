@@ -10,11 +10,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(".")
 
 set(SRC
-    graphX/geometry/geometry.hpp
     graphX/geometry/vector.hpp
+    graphX/geometry/geometry.hpp
 
     graphX/geometry/shapes/Ishape.hpp
-    graphX/geometry/shapes/Ashape.hpp
     graphX/geometry/shapes/shpere.hpp
     graphX/geometry/shapes/shpere.cpp
 
@@ -22,8 +21,12 @@ set(SRC
     graphX/core/Irenderer.hpp
     graphX/core/framebuffer.hpp
 
-    graphX/rt/material.hpp
-    graphX/rt/material.cpp
+    graphX/rt/scene/material.hpp
+    graphX/rt/scene/material.cpp
+    graphX/rt/scene/shape.hpp
+    graphX/rt/scene/light.hpp
+    graphX/rt/scene/scene.hpp
+
     graphX/rt/raytracer.hpp
     graphX/rt/raytracer.cpp
 

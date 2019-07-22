@@ -19,16 +19,17 @@ namespace graphX {
         class vector {
             static_assert(DIM > 0);
 
-        public:
+        public: // MP types
             static constexpr size_t size = DIM;
             using type = T;
 
         public: // CTOR / DTOR / move / assignment
-            constexpr vector() : _data{} {}
+            constexpr vector() noexcept : _data{} {}
             vector(const vector<DIM, T>&) = default;
             vector(vector<DIM, T>&&) noexcept = default;
 
-            vector(std::initializer_list<T> list_) {
+            // TODO: find a way to make this constexpr
+            vector(std::initializer_list<T> list_) noexcept {
                 using std::begin;
                 using std::end;
 
@@ -42,7 +43,7 @@ namespace graphX {
             vector<DIM, T>& operator=(vector<DIM, T>&&) noexcept = default;
 
 
-            vector<DIM, T>& operator=(std::initializer_list<T> list_) {
+            vector<DIM, T>& operator=(std::initializer_list<T> list_) noexcept {
                 using std::begin;
                 using std::end;
 
@@ -50,8 +51,6 @@ namespace graphX {
                 std::copy(begin(list_), end(list_), begin(_data));
                 return *this;
             }
-
-            // TODO: add conversion from std::initializer_list ?
 
         public: // Operator overloading
             bool operator==(const vector<DIM, T> rhs_) const {
@@ -167,6 +166,7 @@ namespace graphX {
             return out_ << vec_[DIM-1] << "]";
         }
 
+        // TODO: USING
         template<typename VEC>
         typename std::decay_t<VEC>::type norm(VEC&& vec_) {
             typename std::decay_t<VEC>::type sum{};

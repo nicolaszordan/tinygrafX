@@ -9,16 +9,19 @@
 #include "graphX/rt/raytracer.hpp"
 
 #include "graphX/geometry/shapes/shpere.hpp"
-#include "graphX/rt/material.hpp"
+#include "graphX/rt/scene/material.hpp"
 
 int main() {
     graphX::rt::RayTracer rt;
     graphX::renderer::PPM_Renderer renderer;
 
     std::cout << "scene setup" << std::endl;
-    rt.emplace_shape<graphX::geometry::Sphere>(graphX::vec3f{-3, 0, -16}, 2, graphX::Materials::IVORY);
-    rt.emplace_shape<graphX::geometry::Sphere>(graphX::vec3f{-1.0, -1.5, -12}, 2, graphX::Materials::RED_RUBBER);
-    rt.emplace_shape<graphX::geometry::Sphere>(graphX::vec3f{1.5, -0.5, -18}, 2, graphX::Materials::VANTABLACK);
+    rt.get_scene().add_shape<graphX::geometry::Sphere>(graphX::Materials::IVORY,      graphX::vec3f{  -3,    0, -16}, 1);
+    rt.get_scene().add_shape<graphX::geometry::Sphere>(graphX::Materials::RED_RUBBER, graphX::vec3f{-1.0, -1.5, -12}, 2);
+    rt.get_scene().add_shape<graphX::geometry::Sphere>(graphX::Materials::VANTABLACK, graphX::vec3f{ 1.5, -0.5, -18}, 3);
+    rt.get_scene().add_shape<graphX::geometry::Sphere>(graphX::Materials::IVORY,      graphX::vec3f{   7,    5, -18}, 4);
+
+//    rt.get_scene().lights.emplace_back(graphX::vec3f{-20, 20, 20}, 1.5);
     std::cout << "raytracing" << std::endl;
     rt.render(renderer);
     std::cout << "raytracing done" << std::endl;

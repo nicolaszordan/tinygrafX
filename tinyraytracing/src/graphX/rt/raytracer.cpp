@@ -34,8 +34,8 @@ namespace graphX::rt {
         float dist = std::numeric_limits<float>::max();
 
         for (const auto& it : _scene.shapes) {
-            if (it->ray_intersect(orig_, dir_, dist)) {
-                out_ = it->get_material();
+            if (it.get_shape()->ray_intersect(orig_, dir_, dist)) {
+                out_ = it.get_material().color;
             } // else leave already set background
         }
     }

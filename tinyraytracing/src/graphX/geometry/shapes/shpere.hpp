@@ -4,18 +4,13 @@
 
 #pragma once
 
-#include "Ashape.hpp"
+#include "Ishape.hpp"
 
 namespace graphX::geometry {
-    struct Sphere : AShape {
+    struct Sphere : IShape {
     public:
         Sphere(const vec3f& center_, float radius_)
-            : AShape{}, center{center_}, radius{radius_} {
-        }
-
-        template<typename M>
-        Sphere(const vec3f& center_, float radius_, M&& material_)
-            : AShape{material_}, center{center_}, radius{radius_} {
+            : center{center_}, radius{radius_} {
         }
 
     public:
