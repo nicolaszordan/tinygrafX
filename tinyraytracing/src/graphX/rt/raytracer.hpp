@@ -30,9 +30,12 @@ namespace graphX::rt {
         const Scene& get_scene() const { return _scene; }
         Scene& get_scene() { return const_cast<Scene&>(std::as_const(*this).get_scene()); }
 
+    private:
+        static constexpr size_t MAX_RAY_DISTANCE = 1000;
+
     private: // Render functions
-        void _render_bg();
-        void _cast_ray(const vec3f& orig_, const vec3f& dir_, vec3f& out_);
+        vec3f _cast_ray(const vec3f& orig_, const vec3f& dir_) const ;
+        float _calc_scene_intersect(const vec3f &orig_, const vec3f &dir_, vec3f& hit_point_, vec3f& N_, vec3f& color_) const;
 
     private:
         Scene _scene;

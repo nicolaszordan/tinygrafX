@@ -9,7 +9,7 @@
 namespace graphX::geometry {
     class IShape {
     public:
-        virtual bool ray_intersect(const vec3f& orig_, const vec3f& dir_, float& t0_) const = 0;
+        virtual bool ray_intersect(const vec3f& orig_, const vec3f& dir_, float& t0_, vec3f& N_) const = 0;
 
     public:
         IShape() = default;

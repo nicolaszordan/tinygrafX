@@ -14,7 +14,7 @@ namespace graphX::geometry {
         }
 
     public:
-        bool ray_intersect(const vec3f& orig_, const vec3f& dir_, float& t0_) const override;
+        bool ray_intersect(const vec3f& orig_, const vec3f& dir_, float& t0_, vec3f& N_) const override;
 
     public:
         vec3f   center;
