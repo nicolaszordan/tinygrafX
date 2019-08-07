@@ -10,6 +10,8 @@ namespace graphX {
     namespace rt {
         struct Material {
             vec3f color;
+            vec2f albedo;
+            float specular_exponent;
         };
     }
 

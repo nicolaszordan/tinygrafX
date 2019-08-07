@@ -35,7 +35,7 @@ namespace graphX::rt {
 
     private: // Render functions
         vec3f _cast_ray(const vec3f& orig_, const vec3f& dir_) const ;
-        float _calc_scene_intersect(const vec3f &orig_, const vec3f &dir_, vec3f& hit_point_, vec3f& N_, vec3f& color_) const;
+        float _calc_scene_intersect(const vec3f &orig_, const vec3f &dir_, vec3f& hit_point_, vec3f& N_, Material& material_) const;
 
     private:
         Scene _scene;

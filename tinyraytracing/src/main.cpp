@@ -22,7 +22,9 @@ int main() {
     rt.get_scene().add_shape<graphX::geometry::Sphere>(graphX::Materials::IVORY,      graphX::vec3f{   7,    5, -18}, 5);
     rt.get_scene().add_shape<graphX::geometry::Sphere>(graphX::Materials::RED_RUBBER, graphX::vec3f{  -7,    5, -10}, 3);
 
-    rt.get_scene().add_light(graphX::vec3f{-20, 20, 20}, 1.5);
+    rt.get_scene().add_light(graphX::vec3f{-20, 20,  20}, 1.5);
+    rt.get_scene().add_light(graphX::vec3f{ 30, 50, -25}, 1.8);
+    rt.get_scene().add_light(graphX::vec3f{ 30, 20,  30}, 1.7);
     std::cout << "---- raytracing -----" << std::endl;
     rt.render(renderer);
     std::cout << "-- raytracing done --" << std::endl;
