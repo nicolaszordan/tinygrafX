@@ -10,7 +10,7 @@ namespace graphX {
     namespace rt {
         struct Material {
             vec3f color;
-            vec2f albedo;
+            vec3f albedo;
             float specular_exponent;
         };
     }
@@ -19,5 +19,6 @@ namespace graphX {
         static const rt::Material IVORY;
         static const rt::Material RED_RUBBER;
         static const rt::Material VANTABLACK;
+        static const rt::Material MIRROR;
     };
 }

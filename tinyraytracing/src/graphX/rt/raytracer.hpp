@@ -32,9 +32,10 @@ namespace graphX::rt {
 
     private:
         static constexpr size_t MAX_RAY_DISTANCE = 1000;
+        static constexpr unsigned int MAX_REFLECTION_DEPTH = 4;
 
     private: // Render functions
-        vec3f _cast_ray(const vec3f& orig_, const vec3f& dir_) const ;
+        vec3f _cast_ray(const vec3f& orig_, const vec3f& dir_, unsigned int depth = 0) const ;
         float _calc_scene_intersect(const vec3f &orig_, const vec3f &dir_, vec3f& hit_point_, vec3f& N_, Material& material_) const;
 
     private:
